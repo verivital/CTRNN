@@ -1,0 +1,60 @@
+# Created by Hyst v1.3
+# Hybrid Automaton in Flow*
+# Converted from file: /home/verivital/Documents/ctrnnbenchmark/FPACTRNN.xml
+# Command Line arguments: -tool flowstar "" -output /home/verivital/Documents/ctrnnbenchmark/FPACTRNN.flowstar -input /home/verivital/Documents/ctrnnbenchmark/FPACTRNN.xml /home/verivital/Documents/ctrnnbenchmark/FPACTRNN.cfg
+
+
+hybrid reachability
+{
+    # Vars
+    state var x1, x2, x3, x4, x5
+
+    setting
+    {
+        fixed steps 0.005
+        time 40
+        remainder estimation 0.01
+        identity precondition
+        matlab octagon x1,x2
+        adaptive orders { min 6, max 16 } 
+        cutoff 1e-15
+        precision 53
+        output out
+        max jumps 1
+        print on
+    }
+
+    modes
+    {
+        CTmode1
+        {
+            nonpoly ode
+            {
+                x1' = 5419046323626097 * (exp(-2 * x3) - 1) / (4503599627370496 * (exp(-2 * x3) + 1)) - x1 / 1000000 + 3601 * (exp(-2 * x4) - 1) / (50000 * (exp(-2 * x4) + 1)) + 18727 * (exp(-2 * x5) - 1) / (20000 * (exp(-2 * x5) + 1))
+                x2' = 30003 * (exp(-2 * x4) - 1) / (20000 * (exp(-2 * x4) + 1)) - 11881 * (exp(-2 * x3) - 1) / (10000 * (exp(-2 * x3) + 1)) - x2 / 1000000 - 93519 * (exp(-2 * x5) - 1) / (100000 * (exp(-2 * x5) + 1))
+                x3' = 7144123746377831 * (exp(-2 * x3) - 1) / (4503599627370496 * (exp(-2 * x3) + 1)) - x3 / 1000000 - 5048886837752751 * (exp(-2 * x4) - 1) / (72057594037927936 * (exp(-2 * x4) + 1)) + 5564385670244745 * (exp(-2 * x5) - 1) / (4503599627370496 * (exp(-2 * x5) + 1))
+                x4' = 1348796766312415 * (exp(-2 * x4) - 1) / (4503599627370496 * (exp(-2 * x4) + 1)) - 3086507593514335 * (exp(-2 * x3) - 1) / (36028797018963968 * (exp(-2 * x3) + 1)) - x4 / 1000000 - 2476184452153819 * (exp(-2 * x5) - 1) / (36028797018963968 * (exp(-2 * x5) + 1))
+                x5' = 1523758031023695 * (exp(-2 * x4) - 1) / (18014398509481984 * (exp(-2 * x4) + 1)) - 8060407538855891 * (exp(-2 * x3) - 1) / (4503599627370496 * (exp(-2 * x3) + 1)) - x5 / 1000000 - 3139112893264555 * (exp(-2 * x5) - 1) / (2251799813685248 * (exp(-2 * x5) + 1))
+            }
+            inv
+            {
+            }
+        }
+    }
+
+    jumps
+    {
+    }
+
+    init
+    {
+        CTmode1
+        {
+            x4 in [0.21535, 0.21535]
+            x5 in [-0.58587, -0.58587]
+            x2 in [0.8, 0.8]
+            x3 in [0.52323, 0.52323]
+            x1 in [0.5, 0.5]
+        }
+    }
+}

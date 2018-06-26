@@ -1,0 +1,60 @@
+# Created by Hyst v1.3
+# Hybrid Automaton in Flow*
+# Converted from file: /home/verivital/Documents/ctrnnbenchmark/DFPCTRNN.xml
+# Command Line arguments: -tool flowstar "" -output /home/verivital/Documents/ctrnnbenchmark/DFPCTRNN.flowstar -input /home/verivital/Documents/ctrnnbenchmark/DFPCTRNN.xml /home/verivital/Documents/ctrnnbenchmark/DFPCTRNN.cfg
+
+
+hybrid reachability
+{
+    # Vars
+    state var x1, x2, x3, x4, x5
+
+    setting
+    {
+        fixed steps 0.1
+        time 10
+        remainder estimation 1e-4
+        identity precondition
+        gnuplot octagon x1,x2
+        adaptive orders { min 3, max 8 } 
+        cutoff 1e-15
+        precision 53
+        output out
+        max jumps 10
+        print on
+    }
+
+    modes
+    {
+        CTmode
+        {
+            nonpoly ode
+            {
+                x1' = 4999 * (exp(-2 * x2) - 1) / (2000 * (exp(-2 * x2) + 1)) - x1 - 1171 * (exp(-2 * x1) - 1) / (2500 * (exp(-2 * x1) + 1)) - u / 200 - 4211 * (exp(-2 * x3) - 1) / (10000 * (exp(-2 * x3) + 1)) + 178 * (exp(-2 * x4) - 1) / (625 * (exp(-2 * x4) + 1)) - 399 * (exp(-2 * x5) - 1) / (2000 * (exp(-2 * x5) + 1))
+                x2' = 757 * (exp(-2 * x4) - 1) / (400 * (exp(-2 * x4) + 1)) - x2 - 2723 * (exp(-2 * x1) - 1) / (2000 * (exp(-2 * x1) + 1)) - 321 * (exp(-2 * x2) - 1) / (5000 * (exp(-2 * x2) + 1)) - 413 * (exp(-2 * x3) - 1) / (10000 * (exp(-2 * x3) + 1)) - 2111 * u / 10000 + 1038 * (exp(-2 * x5) - 1) / (625 * (exp(-2 * x5) + 1))
+                x3' = 1689 * u / 10000 - x3 + 1637 * (exp(-2 * x1) - 1) / (2000 * (exp(-2 * x1) + 1)) + 9241 * (exp(-2 * x2) - 1) / (10000 * (exp(-2 * x2) + 1)) + 743 * (exp(-2 * x3) - 1) / (10000 * (exp(-2 * x3) + 1)) + 79 * (exp(-2 * x4) - 1) / (625 * (exp(-2 * x4) + 1)) - 371 * (exp(-2 * x5) - 1) / (2500 * (exp(-2 * x5) + 1))
+                x4' = 129 * u / 2000 - x4 + 3257 * (exp(-2 * x1) - 1) / (10000 * (exp(-2 * x1) + 1)) - 12319 * (exp(-2 * x2) - 1) / (10000 * (exp(-2 * x2) + 1)) + 10997 * (exp(-2 * x3) - 1) / (10000 * (exp(-2 * x3) + 1)) - 137 * (exp(-2 * x4) - 1) / (625 * (exp(-2 * x4) + 1)) + 8547 * (exp(-2 * x5) - 1) / (10000 * (exp(-2 * x5) + 1))
+                x5' = 3111 * (exp(-2 * x1) - 1) / (2500 * (exp(-2 * x1) + 1)) - x5 - 413 * u / 10000 - 1099 * (exp(-2 * x2) - 1) / (2500 * (exp(-2 * x2) + 1)) + 2733 * (exp(-2 * x3) - 1) / (5000 * (exp(-2 * x3) + 1)) - 8671 * (exp(-2 * x4) - 1) / (5000 * (exp(-2 * x4) + 1)) + 5953 * (exp(-2 * x5) - 1) / (10000 * (exp(-2 * x5) + 1))
+            }
+            inv
+            {
+            }
+        }
+    }
+
+    jumps
+    {
+    }
+
+    init
+    {
+        CTmode
+        {
+            x4 in [-0.0097, -0.0097]
+            x5 in [0.0025, 0.0025]
+            x2 in [-0.0065, -0.0065]
+            x3 in [0.0171, 0.0171]
+            x1 in [-0.0097, -0.0097]
+        }
+    }
+}
