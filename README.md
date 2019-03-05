@@ -1,4 +1,4 @@
-# README #
+# Continuous Time Recurrent Neural Network Benchmark
 
 This repository contains code for the reachability analyis of Continuous Time Recurrent Neural Networks (CTRNN) used to approximate dynamical systems.
 It contains:
