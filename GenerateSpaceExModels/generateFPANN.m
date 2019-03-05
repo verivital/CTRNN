@@ -6,7 +6,7 @@ clc;
 close all
 
 %import data structures in Hyst
-javaaddpath(['C:\Users\musaup\Downloads\hyst-master', filesep, 'lib', filesep, 'Hyst.jar'])
+javaaddpath(['/home/musaup/Documents/Tools/hyst', filesep, 'lib', filesep, 'Hyst.jar'])
 import de.uni_freiburg.informatik.swt.spaceexboogieprinter.*;
 import com.verivital.hyst.automaton.*;
 import com.verivital.hyst.grammar.antlr.*;
@@ -90,9 +90,9 @@ doc = printer.convert(ha);
 
 % Save the SpaceEx document and the configuration file 
 xml_printer = de.uni_freiburg.informatik.swt.spaceexxmlprinter.SpaceExXMLPrinter(doc);
-xml_printer.getCFGString();
+xml_printer.getCFGString(false);
 fileID = fopen([file_name,'.cfg'],'w');
-fprintf(fileID,char(xml_printer.getCFGString()));
+fprintf(fileID,char(xml_printer.getCFGString(false)));
 fclose(fileID);
 
 fileID = fopen([file_name,'.xml'],'w');
